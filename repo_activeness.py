@@ -34,8 +34,7 @@ class RepoActiveness:
         # print(['month', 'commits'])
         # for item in self.commits_per_month:
         #     print(item)
-        return self.commits_per_month
-
+        
         
 
     def issue_opened_per_month(self):
@@ -64,7 +63,6 @@ class RepoActiveness:
         # print(['month', 'issues'])
         # for item in self.issues_per_month:
         #     print(item)
-        return self.issue_opened_per_month
         
 
     def combine_commits_issues(self):
