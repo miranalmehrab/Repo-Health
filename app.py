@@ -7,7 +7,8 @@ def main():
     # activeness.combine_commits_issues()
 
     debug_performace = RepoDebugPerformance()
-    debug_performace.combined_opened_closed_issues()
+    # debug_performace.combined_opened_closed_issues()
+    debug_performace.average_time_to_resolve_an_issue_in_quarter_year()
 
 if __name__ == "__main__":
     main()
