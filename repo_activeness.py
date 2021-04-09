@@ -1,5 +1,5 @@
 import json
-from utilities import get_csv_contents, convert_str_to_dict
+from utilities import get_csv_contents, write_data_to_csv_file, convert_str_to_dict
 
 class RepoActiveness:
 
@@ -30,7 +30,7 @@ class RepoActiveness:
                     self.commits_per_month.append([year_month, 1])
 
         self.commits_per_month.sort(key = lambda x: x[0])
-        
+        write_data_to_csv_file('data/commits_per_month.csv', self.commits_per_month)
         # print(['month', 'commits'])
         # for item in self.commits_per_month:
         #     print(item)
@@ -59,6 +59,7 @@ class RepoActiveness:
                     self.issues_per_month.append([str(year_month), 1])
 
         self.issues_per_month.sort(key = lambda x: x[0])
+        write_data_to_csv_file('data/issues_opened_per_month.csv', self.issues_per_month)
         
         # print(['month', 'issues'])
         # for item in self.issues_per_month:
