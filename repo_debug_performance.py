@@ -32,9 +32,9 @@ class RepoDebugPerformance:
 
         self.issues_opened_per_month.sort(key = lambda x: x[0])
         
-        print(['month', 'opened issues'])
-        for item in self.issues_opened_per_month:
-            print(item)
+        # print(['month', 'opened issues'])
+        # for item in self.issues_opened_per_month:
+        #     print(item)
     
 
     def find_issue_closed_per_month(self):
@@ -60,24 +60,28 @@ class RepoDebugPerformance:
 
         self.issues_closed_per_month.sort(key = lambda x: x[0])
         
-        print(['month', 'closed issues'])
-        for item in self.issues_closed_per_month:
-            print(item)
+        # print(['month', 'closed issues'])
+        # for item in self.issues_closed_per_month:
+        #     print(item)
     
     
     def combined_opened_closed_issues(self):
         self.find_issue_opened_per_month()
         self.find_issue_closed_per_month()
 
-        for opened_issue in self.issue_opened_closed_per_month:
-            month = opened_issue[0]
+        for opened_issue in self.issues_opened_per_month:
+            opened_issue_month = opened_issue[0]
+            opened_issue_count = opened_issue[1]
 
-            for closed_issue in self.issue_opened_closed_per_month:
-                if issue[0] == month:
-                    self.issue_opened_closed_per_month.append([str(month), opened_issue[1], closed_issue[1]])
+            for closed_issue in self.issues_closed_per_month:
+                if closed_issue[0] == opened_issue_month:
+                    closed_issue_count = closed_issue[1]
+                    self.issue_opened_closed_per_month.append([str(opened_issue_month), opened_issue_count, closed_issue_count, float(opened_issue_count*1.00 / closed_issue_count*1.00)])
                     break
             
-        print(len(self.issue_opened_closed_per_month))
+        print('combine_issue_open_and_close length '+str(len(self.issue_opened_closed_per_month)))
+        print(['month', 'opened issues', 'closed issues', 'opened / closed issues ratio'])
+
         for open_closed in self.issue_opened_closed_per_month:
             print(open_closed)
     
