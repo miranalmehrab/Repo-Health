@@ -118,7 +118,7 @@ class RepoDebugPerformance:
         
         oldest_year_month_date = date(int(self.time_to_resolve_issues[0][1].split('-')[0]), int(self.time_to_resolve_issues[0][1].split('-')[1]), int(self.time_to_resolve_issues[0][1].split('-')[2]))
         newest_year_month_date = date(int(self.time_to_resolve_issues[-1][1].split('-')[0]), int(self.time_to_resolve_issues[-1][1].split('-')[1]), int(self.time_to_resolve_issues[0][1].split('-')[2]))
-        delta = timedelta(days=90)
+        delta = timedelta(days=30)
 
         while oldest_year_month_date <= newest_year_month_date:
             oldest_year_month_date += delta
@@ -139,7 +139,9 @@ class RepoDebugPerformance:
             
         print(['Quarters', 'No of created issues', 'Total time required in day(s)', 'Average time required in day(s)'])
         for quarter_month in self.time_to_resolve_issues_in_a_quarter:
-            quarter_month[3] = quarter_month[2]*1.00 / quarter_month[1]*1.00
+            if quarter_month[1] != 0:
+                quarter_month[3] = quarter_month[2]*1.00 / quarter_month[1]*1.00
+            
             print(quarter_month)
 
         # [date-q1 2016, total no of commits, total time required]
