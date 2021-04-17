@@ -4,8 +4,8 @@ from repo_debug_performance import RepoDebugPerformance
 
 def main():
     activeness = RepoActiveness()
-    # activeness.find_commits_per_month()
-    activeness.issue_opened_per_month()
+    activeness.find_commits_per_month()
+    # activeness.issue_opened_per_month()
     # activeness.combine_commits_issues()
 
     # debug_performace = RepoDebugPerformance()

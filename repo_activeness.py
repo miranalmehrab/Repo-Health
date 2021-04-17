@@ -11,7 +11,7 @@ class RepoActiveness:
     
 
     def find_commits_per_month(self):
-        input_filename = 'react_native_commits.csv'
+        input_filename = 'pytorch_commits.csv'
         contents = get_csv_contents(os.path.join('commits-issues', input_filename))
         contents = convert_str_to_dict(contents)
 
