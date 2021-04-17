@@ -11,7 +11,7 @@ class RepoActiveness:
     
 
     def find_commits_per_month(self):
-        input_filename = 'pytorch_commits.csv'
+        input_filename = 'tensorflow_commits.csv'
         contents = get_csv_contents(os.path.join('commits-issues', input_filename))
         contents = convert_str_to_dict(contents)
 
@@ -31,9 +31,9 @@ class RepoActiveness:
                 if year_month_already_included is False:
                     self.commits_per_month.append([year_month, 1])
 
-        self.commits_per_month.sort(key = lambda x: x[0])
+        self.commits_per_month.sort(key = lambda x: x[0], reverse=True)
 
-        output_filename = os.path.join('per-month-commits-issues', 'per_month_'+input_filename)
+        output_filename = os.path.join('per-month-commits', 'per_month_'+input_filename)
         write_data_to_csv_file(output_filename, self.commits_per_month)
         
         # print(['month', 'commits'])
@@ -66,7 +66,7 @@ class RepoActiveness:
 
         self.issues_per_month.sort(key = lambda x: x[0])
         
-        output_filename = os.path.join('per-month-commits-issues', 'per_month_'+input_filename)
+        output_filename = os.path.join('per-month-commits', 'per_month_'+input_filename)
         write_data_to_csv_file(output_filename, self.issues_per_month)
         
         
