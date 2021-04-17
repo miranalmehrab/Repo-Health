@@ -3,7 +3,7 @@ import json
 
 
 def get_csv_contents(filename):
-    fp = open('data/'+filename, 'r')
+    fp = open(filename, 'r')
     contents = fp.read()
     contents = contents.split('\n')
     
